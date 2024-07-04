@@ -1,0 +1,29 @@
+# Игнорировать все, кроме следующих файлов
+**
+!Dockerfile
+!requirements.txt
+!app/
+!static/
+!.env
+
+# Игнорировать файлы и каталоги, которые не нужны в Docker образе
+.git
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+*.db
+*.sqlite3
+.venv
+venv
+env
+env.bak
+venv.bak
+.env
+.idea
+.vscode
+*.log
+*.md
+*.json
+tests
+node_modules

@@ -1,18 +1,17 @@
-# Используем официальный образ Python
-FROM python:3.9-slim
+# Используйте официальный образ Python как базовый образ
+FROM python:3.11-slim
 
-# Устанавливаем зависимости
-RUN apt-get update && apt-get install -y gcc
-
-# Создаем рабочую директорию
+# Установите рабочий каталог
 WORKDIR /app
 
-# Копируем файл с зависимостями и устанавливаем их
-COPY requirements.txt requirements.txt
-RUN pip install -r requirements.txt
+# Скопируйте файлы проекта в рабочий каталог
+COPY . /app
 
-# Копируем исходный код
-COPY . .
+# Установите зависимости
+RUN pip install --no-cache-dir -r requirements.txt
 
-# Указываем команду для запуска приложения
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+# Откройте порт для доступа к приложению
+EXPOSE 8000
+
+# Команда для запуска приложения
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
