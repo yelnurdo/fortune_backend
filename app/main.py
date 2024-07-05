@@ -13,6 +13,8 @@ app = FastAPI()
 origins = [
     "http://localhost:3000",
     "http://localhost:8000",
+    "https://fortune-frontend-eta.vercel.app",  # Your Vercel frontend URL
+    "https://fortunebackend-production.up.railway.app",  # Your Railway backend URL
 ]
 
 app.add_middleware(
